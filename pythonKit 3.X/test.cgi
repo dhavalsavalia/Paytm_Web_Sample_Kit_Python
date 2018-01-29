@@ -1,10 +1,8 @@
-#!/usr/bin/python
-
-import Checksum
+import checksum
 import requests
 import base64
 import json
-print "Content-type: text/html\n"
+print("Content-type: text/html\n")
  
 
 MERCHANT_KEY = 'kbzk1DSbJiV_O3p5';
@@ -21,24 +19,18 @@ data_dict = {
 
 
 param_dict = data_dict  
-param_dict['CHECKSUMHASH'] =Checksum.generate_checksum(data_dict, MERCHANT_KEY)
+param_dict['CHECKSUMHASH'] =checksum.generate_checksum(data_dict, MERCHANT_KEY)
 
-
-
-#for key in param_dict:
- #   print key.strip()+param_dict[key].strip()
-
-print '<h1>Merchant Check Out Page</h1></br>'
-print '<form method="post" action="https://pguat.paytm.com/oltp-web/processTransaction" name="f1">'
-print '<table border="1">'
-print '<tbody>'
+print('<h1>Merchant Check Out Page</h1></br>')
+print('<form method="post" action="https://pguat.paytm.com/oltp-web/processTransaction" name="f1">')
+print('<table border="1">')
+print('<tbody>')
 for key in param_dict:
-    print '<input type="hidden" name="'+key.strip()+'"value="'+param_dict[key].strip()+'">'
-print '</tbody>'
-print '</table>'
-print '<script type="text/javascript">'
-print 'document.f1.submit();'
-print '</script>'
-print '</form>'
-
+    print('<input type="hidden" name="{}"value="{}">'.format(key, param_dict[key]))
+print('</tbody>')
+print('</table>')
+print('<script type="text/javascript">')
+print('document.f1.submit();')
+print('</script>')
+print('</form>')
 
