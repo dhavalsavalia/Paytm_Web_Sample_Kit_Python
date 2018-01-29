@@ -26,7 +26,7 @@ print('<form method="post" action="https://pguat.paytm.com/oltp-web/processTrans
 print('<table border="1">')
 print('<tbody>')
 for key in param_dict:
-    print('<input type="hidden" name="{}"value="{}">'.format(key, param_dict[key]))
+    print('<input type="hidden" name="{}" value="{}">'.format(key, param_dict[key]))
 print('</tbody>')
 print('</table>')
 print('<script type="text/javascript">')
